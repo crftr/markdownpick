@@ -1,4 +1,7 @@
-# markdownpick
+<p align="center">
+	<img src=".assets/markdownpick-type-logo.avif" alt="markdownpick logo" />
+</p>
+
 
 Distill Word (.docx) and Excel (.xlsx) documents into clean, LLM-friendly Markdown.
 
