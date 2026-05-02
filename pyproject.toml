@@ -1,0 +1,53 @@
+[project]
+name = "markdownpick"
+version = "0.1.0"
+description = "Distill Word and Excel documents into clean, LLM-friendly Markdown"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+authors = [
+    { name = "Mike Herrera" },
+]
+keywords = ["markdown", "docx", "xlsx", "converter", "office"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+    "openpyxl>=3.1.5",
+    "python-docx>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+markdownpick = "markdownpick.cli:main"
+mp           = "markdownpick.cli:main"
+mp-docx      = "markdownpick.docx.converter:main"
+mp-xlsx      = "markdownpick.excel.converter:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
